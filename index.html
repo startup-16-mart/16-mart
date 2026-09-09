@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIXTEEN MART — Smart Everyday Finds</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --coral: #FF6F59;
+    --warm-ivory: #FFF8F0;
+    --dark-brown: #2D211C;
+    --text: #4A3A33;
+    --muted: #806F67;
+    --soft-coral: #FFE2DB;
+    --white: #FFFFFF;
+    --border: #EADDD6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--warm-ivory);
+    color: var(--text);
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 248, 240, 0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    min-height: 78px;
+    padding: 10px 25px;
+
+    display: grid;
+    grid-template-columns: 170px 1fr auto;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    width: 145px;
+    height: 58px;
+    object-fit: contain;
+    object-position: left center;
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-brown);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--coral);
+}
+
+/* ================= SEARCH ================= */
+
+.search-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-box {
+    width: 220px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    padding: 0 12px;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+}
+
+.search-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(45, 33, 28, 0.72),
+            rgba(45, 33, 28, 0.18)
+        ),
+        url("hero image.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 50px 25px;
+    color: white;
+}
+
+.hero-content h1 {
+    max-width: 650px;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 6vw, 78px);
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    max-width: 550px;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+    background: var(--coral);
+    color: white;
+
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+
+    border: none;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: #ef5c47;
+}
+
+/* ================= GENERAL ================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 25px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--dark-brown);
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+/* ================= CATEGORY ================= */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.category-card {
+    position: relative;
+    height: 330px;
+
+    border-radius: 22px;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(45, 33, 28, 0.08);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform 0.5s;
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(45, 33, 28, 0.78)
+    );
+
+    color: white;
+}
+
+.category-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.category-overlay p {
+    font-size: 13px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products-section {
+    background: white;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--warm-ivory);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(45, 33, 28, 0.1);
+}
+
+.product-image-container {
+    height: 280px;
+    background: white;
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+
+    transition: transform 0.4s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--dark-brown);
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 15px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.price {
+    font-weight: 800;
+    color: var(--coral);
+    font-size: 18px;
+}
+
+.order-btn {
+    background: var(--coral);
+    color: white;
+
+    border: none;
+    border-radius: 20px;
+
+    padding: 9px 15px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.order-btn:hover {
+    background: #ef5c47;
+}
+
+/* ================= NO RESULTS ================= */
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--muted);
+}
+
+.no-results h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--dark-brown);
+    margin-bottom: 10px;
+}
+
+/* ================= CATEGORY VIEW ================= */
+
+.category-view {
+    display: none;
+    background: white;
+    min-height: 600px;
+}
+
+.category-view.active {
+    display: block;
+}
+
+.category-view-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.category-view-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    color: var(--dark-brown);
+    margin-bottom: 10px;
+}
+
+.category-view-header p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.back-btn {
+    display: inline-block;
+    border: none;
+    background: var(--soft-coral);
+    color: var(--dark-brown);
+
+    padding: 11px 20px;
+    border-radius: 25px;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* ================= CONCEPT ================= */
+
+.concept {
+    background: var(--soft-coral);
+}
+
+.concept-grid {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 25px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.concept-box {
+    text-align: center;
+}
+
+.concept-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.concept-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+    color: white;
+
+    font-size: 25px;
+    text-decoration: none;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+
+    z-index: 999;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: var(--dark-brown);
+    color: white;
+    padding: 55px 25px 25px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    width: 140px;
+    height: 55px;
+
+    object-fit: contain;
+
+    background: white;
+    border-radius: 8px;
+    padding: 3px;
+
+    margin-bottom: 15px;
+}
+
+.footer-column h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column a {
+    color: #D8C9C2;
+    font-size: 13px;
+    line-height: 2;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: var(--coral);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 35px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    text-align: center;
+
+    color: #B9AAA3;
+    font-size: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 950px) {
+
+    .header-container {
+        grid-template-columns: 140px 1fr;
+    }
+
+    nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        padding-bottom: 10px;
+    }
+
+    .search-area {
+        justify-content: flex-end;
+    }
+
+    .concept-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-content h1 {
+        font-size: 50px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .header-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .search-area {
+        width: 100%;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 18px;
+    }
+
+    nav a {
+        white-space: nowrap;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="header-container">
+
+    <img
+        src="Logo.jpeg"
+        alt="SIXTEEN MART Logo"
+        class="logo"
+        onclick="showAllProducts()"
+    >
+
+    <nav>
+        <a onclick="showAllProducts()">Home</a>
+        <a onclick="showCategory('home')">Home Accessories</a>
+        <a onclick="showCategory('beauty')">Beauty Accessories</a>
+        <a onclick="showAllProducts()">All Products</a>
+    </nav>
+
+    <div class="search-area">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+            >
+
+            <button
+                class="search-btn"
+                onclick="searchProducts()"
+                aria-label="Search"
+            >
+                🔍
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+    <h1>
+        Smart Everyday Finds.
+        Always More Value.
+    </h1>
+
+    <p>
+        Discover affordable, functional and trendy lifestyle products
+        carefully selected for your everyday needs.
+    </p>
+
+    <button
+        class="btn"
+        onclick="showAllProducts()"
+    >
+        Shop New Arrivals
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+<div class="section-title">
+
+    <h2>Shop by Category</h2>
+
+    <p>
+        Discover products made to make everyday life easier.
+    </p>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<!-- HOME ACCESSORIES -->
+
+<div
+    class="category-card"
+    onclick="showCategory('home')"
+>
+
+    <img
+        src="Home accessories.jpg"
+        alt="Home Accessories"
+    >
+
+    <div class="category-overlay">
+
+        <h3>Home Accessories</h3>
+
+        <p>
+            Functional finds for a smarter and more comfortable home.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- BEAUTY ACCESSORIES -->
+
+<div
+    class="category-card"
+    onclick="showCategory('beauty')"
+>
+
+    <img
+        src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=80"
+        alt="Beauty Accessories"
+    >
+
+    <div class="category-overlay">
+
+        <h3>Beauty Accessories</h3>
+
+        <p>
+            Simple beauty essentials for your everyday routine.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ALL PRODUCTS ================= -->
+
+<section
+    class="section products-section"
+    id="products"
+>
+
+<div class="section-title">
+
+    <h2 id="productsTitle">
+        Our Products
+    </h2>
+
+    <p id="productsSubtitle">
+        Smart products. Better value. Everyday convenience.
+    </p>
+
+</div>
+
+
+<div
+    class="product-grid"
+    id="productGrid"
+>
+
+
+<!-- PRODUCT 1 -->
+
+<div
+    class="product-card"
+    data-category="beauty"
+    data-name="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set"
+>
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="5-in-1 Hot Air Styler  Hair Dryer Curling Wand Set.jpg"
+            alt="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            5-in-1 Hot Air Styler Hair Dryer Curling Wand Set
+        </h3>
+
+        <p class="product-description">
+            A versatile styling tool for drying, curling and creating
+            beautiful everyday hairstyles.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 4,990
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%205-in-1%20Hot%20Air%20Styler."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div
+    class="product-card"
+    data-category="home"
+    data-name="Electric Handheld Milk Frother"
+>
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Electric Handheld Milk Frother.jpg"
+            alt="Electric Handheld Milk Frother"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Electric Handheld Milk Frother
+        </h3>
+
+        <p class="product-description">
+            Quickly create smooth and creamy froth for coffee,
+            cappuccino and other drinks.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 1,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Electric%20Handheld%20Milk%20Frother."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div
+    class="product-card"
+    data-category="beauty"
+    data-name="Jade Roller Gua Sha Facial Massage Set"
+>
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Jade Roller & Gua Sha Facial Massage Set.jpg"
+            alt="Jade Roller and Gua Sha Facial Massage Set"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Jade Roller & Gua Sha Facial Massage Set
+        </h3>
+
+        <p class="product-description">
+            A simple facial massage set designed for a relaxing
+            self-care routine.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 2,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Jade%20Roller%20and%20Gua%20Sha%20Set."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div
+    class="product-card"
+    data-category="home"
+    data-name="Mini Portable Pocket Thermal Printer"
+>
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Mini Portable Pocket Thermal Printer.jpg"
+            alt="Mini Portable Pocket Thermal Printer"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Mini Portable Pocket Thermal Printer
+        </h3>
+
+        <p class="product-description">
+            A compact portable printer for notes, labels, lists and
+            fun everyday prints.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 3,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Mini%20Portable%20Pocket%20Thermal%20Printer."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div
+    class="product-card"
+    data-category="beauty"
+    data-name="Moisturizing Pink Spa Gel Socks"
+>
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Moisturizing Pink Spa Gel Socks.jpg"
+            alt="Moisturizing Pink Spa Gel Socks"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Moisturizing Pink Spa Gel Socks
+        </h3>
+
+        <p class="product-description">
+            Comfortable gel socks designed to support a relaxing
+            foot-care routine.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 1,290
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Moisturizing%20Pink%20Spa%20Gel%20Socks."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div
+    class="product-card"
+    data-category="home"
+    data-name="Portable Rechargeable Juice Blender"
+>
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Portable Rechargeable Juice Blender.jpg"
+            alt="Portable Rechargeable Juice Blender"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Portable Rechargeable Juice Blender
+        </h3>
+
+        <p class="product-description">
+            A compact rechargeable blender designed for convenient
+            smoothies and drinks on the go.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 3,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Portable%20Rechargeable%20Juice%20Blender."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<div
+    class="no-results"
+    id="noResults"
+>
+
+    <h3>No products found</h3>
+
+    <p>
+        Try searching for another product.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- ================= HOME ACCESSORIES SEPARATE VIEW ================= -->
+
+<section
+    class="section category-view"
+    id="homeCategory"
+>
+
+<div class="category-view-header">
+
+    <h2>Home Accessories</h2>
+
+    <p>
+        Functional and smart products to make your everyday home life easier.
+    </p>
+
+    <button
+        class="back-btn"
+        onclick="showAllProducts()"
+    >
+        ← Back to All Products
+    </button>
+
+</div>
+
+
+<div class="product-grid">
+
+
+<!-- HOME PRODUCT 1 -->
+
+<div class="product-card">
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Electric Handheld Milk Frother.jpg"
+            alt="Electric Handheld Milk Frother"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Electric Handheld Milk Frother
+        </h3>
+
+        <p class="product-description">
+            Make smooth and creamy froth for your favourite drinks.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 1,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Electric%20Handheld%20Milk%20Frother."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HOME PRODUCT 2 -->
+
+<div class="product-card">
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Mini Portable Pocket Thermal Printer.jpg"
+            alt="Mini Portable Pocket Thermal Printer"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Mini Portable Pocket Thermal Printer
+        </h3>
+
+        <p class="product-description">
+            Compact printing for notes, labels and everyday lists.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 3,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Mini%20Portable%20Pocket%20Thermal%20Printer."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HOME PRODUCT 3 -->
+
+<div class="product-card">
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Portable Rechargeable Juice Blender.jpg"
+            alt="Portable Rechargeable Juice Blender"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Portable Rechargeable Juice Blender
+        </h3>
+
+        <p class="product-description">
+            Make smoothies and drinks conveniently wherever you go.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 3,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Portable%20Rechargeable%20Juice%20Blender."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= BEAUTY ACCESSORIES SEPARATE VIEW ================= -->
+
+<section
+    class="section category-view"
+    id="beautyCategory"
+>
+
+<div class="category-view-header">
+
+    <h2>Beauty Accessories</h2>
+
+    <p>
+        Everyday beauty and self-care accessories for your routine.
+    </p>
+
+    <button
+        class="back-btn"
+        onclick="showAllProducts()"
+    >
+        ← Back to All Products
+    </button>
+
+</div>
+
+
+<div class="product-grid">
+
+
+<!-- BEAUTY PRODUCT 1 -->
+
+<div class="product-card">
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="5-in-1 Hot Air Styler  Hair Dryer Curling Wand Set.jpg"
+            alt="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            5-in-1 Hot Air Styler Hair Dryer Curling Wand Set
+        </h3>
+
+        <p class="product-description">
+            Style, dry and curl your hair with one versatile tool.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 4,990
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%205-in-1%20Hot%20Air%20Styler."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- BEAUTY PRODUCT 2 -->
+
+<div class="product-card">
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Jade Roller & Gua Sha Facial Massage Set.jpg"
+            alt="Jade Roller and Gua Sha Facial Massage Set"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Jade Roller & Gua Sha Facial Massage Set
+        </h3>
+
+        <p class="product-description">
+            A relaxing accessory for your everyday self-care routine.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 2,490
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Jade%20Roller%20and%20Gua%20Sha%20Set."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- BEAUTY PRODUCT 3 -->
+
+<div class="product-card">
+
+    <div class="product-image-container">
+
+        <img
+            class="product-img"
+            src="Moisturizing Pink Spa Gel Socks.jpg"
+            alt="Moisturizing Pink Spa Gel Socks"
+        >
+
+    </div>
+
+    <div class="product-info">
+
+        <h3>
+            Moisturizing Pink Spa Gel Socks
+        </h3>
+
+        <p class="product-description">
+            A comfortable addition to your relaxing foot-care routine.
+        </p>
+
+        <div class="product-bottom">
+
+            <span class="price">
+                Rs. 1,290
+            </span>
+
+            <a
+                class="order-btn"
+                href="https://wa.me/?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Moisturizing%20Pink%20Spa%20Gel%20Socks."
+                target="_blank"
+            >
+                Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONCEPT ================= -->
+
+<section class="concept">
+
+<div class="concept-grid">
+
+    <div class="concept-box">
+
+        <h3>16 Members</h3>
+
+        <p>
+            Sixteen ideas coming together to create one lifestyle store.
+        </p>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>Affordable</h3>
+
+        <p>
+            Everyday products at prices that offer great value.
+        </p>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>Functional & Trendy</h3>
+
+        <p>
+            Useful products that also fit modern lifestyles.
+        </p>
+
+    </div>
+
+
+    <div class="concept-box">
+
+        <h3>Direct Social Flow</h3>
+
+        <p>
+            Discover, connect and order easily through social platforms.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+    href="https://wa.me/"
+    class="whatsapp"
+    target="_blank"
+    aria-label="WhatsApp"
+>
+    ☎
+</a>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-container">
+
+
+<div class="footer-column">
+
+    <img
+        src="Logo.jpeg"
+        alt="SIXTEEN MART Logo"
+        class="footer-logo"
+    >
+
+    <p>
+        Smart everyday finds with more value.
+        Affordable, functional and trendy lifestyle products.
+    </p>
+
+</div>
+
+
+<div class="footer-column">
+
+    <h3>Quick Links</h3>
+
+    <a onclick="showAllProducts()">Home</a><br>
+
+    <a onclick="showCategory('home')">
+        Home Accessories
+    </a><br>
+
+    <a onclick="showCategory('beauty')">
+        Beauty Accessories
+    </a><br>
+
+    <a onclick="showAllProducts()">
+        All Products
+    </a>
+
+</div>
+
+
+<div class="footer-column">
+
+    <h3>Contact</h3>
+
+    <p>WhatsApp: Order Online</p>
+
+    <p>Instagram: @sixteenmart</p>
+
+    <p>Facebook: SIXTEEN MART</p>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 SIXTEEN MART. All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const searchInput = document.getElementById("searchInput");
+
+const productCards = document.querySelectorAll(
+    "#productGrid .product-card"
+);
+
+const noResults = document.getElementById("noResults");
+
+const productsSection = document.getElementById("products");
+
+const homeCategory = document.getElementById("homeCategory");
+
+const beautyCategory = document.getElementById("beautyCategory");
+
+const categoriesSection = document.getElementById("categories");
+
+const heroSection = document.querySelector(".hero");
+
+
+/* ==========================================
+   SEARCH FUNCTION
+========================================== */
+
+function searchProducts() {
+
+    const searchTerm =
+        searchInput.value.trim().toLowerCase();
+
+    /* If search box is empty */
+    if (searchTerm === "") {
+
+        productCards.forEach(card => {
+            card.style.display = "block";
+        });
+
+        noResults.style.display = "none";
+
+        document.getElementById("productsTitle").textContent =
+            "Our Products";
+
+        document.getElementById("productsSubtitle").textContent =
+            "Smart products. Better value. Everyday convenience.";
+
+        showAllProducts(false);
+
+        return;
+    }
+
+
+    /* Make sure normal product section is visible */
+    homeCategory.classList.remove("active");
+    beautyCategory.classList.remove("active");
+
+    productsSection.style.display = "block";
+
+
+    /* Search products */
+
+    let foundProducts = 0;
+
+    productCards.forEach(card => {
+
+        const productName =
+            card.getAttribute("data-name").toLowerCase();
+
+        if (productName.includes(searchTerm)) {
+
+            card.style.display = "block";
+
+            foundProducts++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    /* Update heading */
+
+    document.getElementById("productsTitle").textContent =
+        "Search Results";
+
+    document.getElementById("productsSubtitle").textContent =
+        `Showing results for "${searchInput.value}"`;
+
+
+    /* No products */
+
+    if (foundProducts === 0) {
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+
+    /* Scroll to products */
+
+    productsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* ==========================================
+   SEARCH WHEN PRESSING ENTER
+========================================== */
+
+searchInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+        searchProducts();
+
+    }
+
+});
+
+
+/* ==========================================
+   CLEAR SEARCH WHEN X / EMPTY
+========================================== */
+
+searchInput.addEventListener("input", function() {
+
+    if (this.value.trim() === "") {
+
+        productCards.forEach(card => {
+            card.style.display = "block";
+        });
+
+        noResults.style.display = "none";
+
+        document.getElementById("productsTitle").textContent =
+            "Our Products";
+
+        document.getElementById("productsSubtitle").textContent =
+            "Smart products. Better value. Everyday convenience.";
+
+    }
+
+});
+
+
+/* ==========================================
+   SHOW HOME ACCESSORIES
+========================================== */
+
+function showCategory(category) {
+
+    /* Hide normal products */
+
+    productsSection.style.display = "none";
+
+    /* Hide both category views */
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+
+    /* Clear search */
+
+    searchInput.value = "";
+
+
+    /* Show selected category */
+
+    if (category === "home") {
+
+        homeCategory.classList.add("active");
+
+        homeCategory.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+    if (category === "beauty") {
+
+        beautyCategory.classList.add("active");
+
+        beautyCategory.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+
+/* ==========================================
+   SHOW ALL PRODUCTS
+========================================== */
+
+function showAllProducts(scroll = true) {
+
+    /* Hide separate category pages */
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+
+    /* Show main product section */
+
+    productsSection.style.display = "block";
+
+
+    /* Show every product */
+
+    productCards.forEach(card => {
+
+        card.style.display = "block";
+
+    });
+
+
+    /* Reset search */
+
+    searchInput.value = "";
+
+    noResults.style.display = "none";
+
+
+    /* Reset heading */
+
+    document.getElementById("productsTitle").textContent =
+        "Our Products";
+
+    document.getElementById("productsSubtitle").textContent =
+        "Smart products. Better value. Everyday convenience.";
+
+
+    /* Scroll */
+
+    if (scroll) {
+
+        productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+
+/* ==========================================
+   HOME LOGO
+========================================== */
+
+document.querySelector(".logo").addEventListener(
+    "click",
+    function() {
+
+        showAllProducts(false);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+</script>
+
+</body>
+</html>
