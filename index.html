@@ -1,0 +1,4577 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#FF6F59" name="theme-color"/>
+<title>SIXTEEN MART — Smart Everyday Finds</title>
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --coral: #FF6F59;
+    --warm-ivory: #FFF8F0;
+    --dark-brown: #2D211C;
+    --text: #4A3A33;
+    --muted: #806F67;
+    --soft-coral: #FFE2DB;
+    --white: #FFFFFF;
+    --border: #EADDD6;
+}
+
+
+/* =========================================================
+   RESET / GENERAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--warm-ivory);
+    color: var(--text);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 248, 240, 0.97);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+
+    min-height: 82px;
+
+    padding: 10px 25px;
+
+    display: grid;
+
+    grid-template-columns: 160px minmax(0, 1fr) 230px;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    width: 145px;
+    height: 58px;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: left center;
+
+    cursor: pointer;
+
+    max-height: 58px;
+
+    /* Makes the logo's white JPEG background blend into the header */
+    background: transparent;
+    mix-blend-mode: multiply;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 24px;
+
+    min-width: 0;
+}
+
+nav a {
+    text-decoration: none;
+
+    color: var(--dark-brown);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: var(--coral);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-btn {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--white);
+
+    color: var(--dark-brown);
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.dropdown {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.dropdown > a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.dropdown-arrow {
+    font-size: 9px;
+
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 15px);
+
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-5px);
+
+    min-width: 245px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 8px;
+
+    box-shadow: 0 10px 30px rgba(45, 33, 28, 0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: all 0.25s ease;
+
+    z-index: 1100;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+.category-dropdown {
+    position: relative;
+}
+
+.category-dropdown > a {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 11px 14px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: var(--dark-brown);
+}
+
+.category-dropdown > a:hover {
+    background: var(--soft-coral);
+
+    color: var(--coral);
+}
+
+.category-arrow {
+    font-size: 9px;
+    margin-left: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.category-dropdown:hover .category-arrow {
+    transform: rotate(180deg);
+}
+
+.category-dropdown.mobile-open .category-arrow {
+    transform: rotate(180deg);
+}
+
+.product-submenu {
+    position: absolute;
+
+    left: calc(100% + 8px);
+
+    top: -8px;
+
+    min-width: 260px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 8px;
+
+    box-shadow: 0 10px 30px rgba(45, 33, 28, 0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateX(-5px);
+
+    transition: all 0.25s ease;
+
+    z-index: 1200;
+}
+
+.category-dropdown:hover .product-submenu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+}
+
+.product-submenu a {
+    display: block;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    white-space: normal;
+
+    color: var(--dark-brown);
+}
+
+.product-submenu a:hover {
+    background: var(--soft-coral);
+
+    color: var(--coral);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-area {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    width: 100%;
+}
+
+.search-box {
+    width: 220px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 25px;
+
+    padding: 0 10px 0 14px;
+
+    box-shadow: 0 3px 10px rgba(45, 33, 28, 0.04);
+
+    min-width: 0;
+}
+
+.search-box input {
+    width: 100%;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-size: 13px;
+
+    color: var(--dark-brown);
+}
+
+.search-box input::placeholder {
+    color: #9A8981;
+}
+
+.search-btn {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--dark-brown);
+
+    border-radius: 50%;
+}
+
+.search-btn:hover {
+    background: var(--soft-coral);
+}
+
+
+/* =========================================================
+   HERO CAROUSEL
+========================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: clamp(500px, 43vw, 620px);
+    overflow: hidden;
+    background: var(--dark-brown);
+}
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.hero-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(45, 33, 28, 0.72),
+        rgba(45, 33, 28, 0.18)
+    );
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.65);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+    width: 25px;
+    border-radius: 10px;
+    background: #FFFFFF;
+}
+
+
+
+.hero-content {
+    max-width: 1200px;
+
+    width: 100%;
+
+    margin: auto;
+
+    padding: 70px 25px;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    min-height: 560px;
+}
+
+.hero-content h1 {
+    max-width: 650px;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 6vw, 78px);
+
+    line-height: 1.05;
+
+    margin-bottom: 22px;
+}
+
+.hero-content p {
+    max-width: 550px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 28px;
+
+    min-height: 50px;
+
+    border-radius: 30px;
+
+    background: var(--coral);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow: 0 8px 20px rgba(45, 33, 28, 0.18);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    background: #ef5c47;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 80px 25px;
+
+    scroll-margin-top: 100px;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 42px;
+
+    color: var(--dark-brown);
+
+    margin-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 3px;
+
+    background: var(--coral);
+
+    border-radius: 5px;
+
+    margin: 12px auto 0;
+}
+
+.section-title p {
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.category-card {
+    position: relative;
+
+    height: 330px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(45, 33, 28, 0.08);
+
+    border: 2px solid rgba(255, 111, 89, 0.25);
+}
+
+.category-card img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s;
+}
+
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 30px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(45, 33, 28, 0.78)
+    );
+
+    color: white;
+}
+
+.category-overlay h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+.category-overlay p {
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+.products-section {
+    background: white;
+
+    max-width: none;
+
+    padding-left: max(25px, calc((100% - 1150px) / 2));
+
+    padding-right: max(25px, calc((100% - 1150px) / 2));
+}
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--warm-ivory);
+
+    border: 2px solid rgba(255, 111, 89, 0.35);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+    min-width: 0;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 111, 89, 0.65);
+
+    box-shadow: 0 12px 30px rgba(255, 111, 89, 0.16);
+}
+
+.product-image-container {
+    height: 280px;
+
+    background: white;
+
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 15px;
+
+    transition: transform 0.4s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    color: var(--dark-brown);
+
+    margin-bottom: 10px;
+
+    overflow-wrap: anywhere;
+}
+
+.product-description {
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+
+    margin-bottom: 15px;
+}
+
+.product-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.price {
+    font-weight: 800;
+
+    color: var(--coral);
+
+    font-size: 18px;
+}
+
+.order-btn {
+    background: var(--coral);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 20px;
+
+    padding: 10px 16px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 38px;
+}
+
+.order-btn:hover {
+    background: #ef5c47;
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.no-results {
+    display: none;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: var(--muted);
+}
+
+.no-results h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 28px;
+
+    color: var(--dark-brown);
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   CATEGORY VIEW
+========================================================= */
+
+.category-view {
+    display: none;
+
+    max-width: 1200px;
+
+    min-height: 600px;
+}
+
+.category-view.active {
+    display: block;
+}
+
+.category-view-header {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.category-view-header h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 45px;
+
+    color: var(--dark-brown);
+
+    margin-bottom: 10px;
+}
+
+.category-view-header p {
+    color: var(--muted);
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.back-btn {
+    display: inline-block;
+
+    border: none;
+
+    background: var(--soft-coral);
+
+    color: var(--dark-brown);
+
+    padding: 11px 20px;
+
+    border-radius: 25px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    min-height: 42px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+    background: var(--warm-ivory);
+
+    scroll-margin-top: 100px;
+}
+
+.about-content {
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-content h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 42px;
+
+    color: var(--dark-brown);
+
+    margin-bottom: 15px;
+}
+
+.about-content h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 3px;
+
+    background: var(--coral);
+
+    border-radius: 5px;
+
+    margin: 12px auto 22px;
+}
+
+.about-content p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+}
+
+/* About page enhancements */
+.about-content {
+    text-align: left;
+}
+
+.about-content h2 {
+    text-align: center;
+}
+
+.about-intro {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    color: var(--text);
+    font-size: 15px;
+}
+
+.about-accent {
+    color: var(--coral);
+    font-weight: 800;
+}
+
+.about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.about-highlight {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--dark-brown);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.about-highlight i {
+    color: var(--coral);
+}
+
+.about-purpose {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 30px 0;
+}
+
+.about-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--white);
+}
+
+.about-card i {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 14px;
+    border-radius: 50%;
+    background: var(--soft-coral);
+    color: var(--coral);
+}
+
+.about-card h3 {
+    margin-bottom: 9px;
+    color: var(--dark-brown);
+    font-size: 20px;
+}
+
+.about-card p {
+    margin: 0;
+}
+
+.about-closing {
+    max-width: 760px;
+    margin: 0 auto 22px !important;
+    text-align: center;
+    font-weight: 600;
+}
+
+.about-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 13px 21px;
+    border-radius: 999px;
+    background: var(--coral);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(255, 111, 89, .25);
+    transition: transform .2s ease, background .2s ease;
+}
+
+.about-cta:hover {
+    background: #e95b47;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq-section {
+    background: white;
+
+    max-width: none;
+
+    padding-left: max(25px, calc((100% - 850px) / 2));
+
+    padding-right: max(25px, calc((100% - 850px) / 2));
+
+    scroll-margin-top: 100px;
+}
+
+.faq-container {
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.faq-container details {
+    background: var(--warm-ivory);
+
+    border: 1px solid var(--border);
+
+    border-left: 3px solid var(--coral);
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    padding: 0 20px;
+
+    transition: 0.3s;
+}
+
+.faq-container details:hover {
+    border-color: var(--coral);
+
+    box-shadow: 0 5px 18px rgba(255, 111, 89, 0.08);
+}
+
+.faq-container summary {
+    cursor: pointer;
+
+    padding: 18px 5px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: var(--dark-brown);
+
+    list-style: none;
+
+    position: relative;
+
+    padding-right: 30px;
+
+    line-height: 1.5;
+}
+
+.faq-container summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-container summary::after {
+    content: "+";
+
+    position: absolute;
+
+    right: 5px;
+
+    top: 15px;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    color: var(--coral);
+}
+
+.faq-container details[open] summary::after {
+    content: "−";
+}
+
+.faq-container details p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    padding: 0 5px 18px;
+}
+
+
+/* =========================================================
+   CONCEPT
+========================================================= */
+
+.concept {
+    background: var(--warm-ivory);
+
+    width: 100%;
+}
+
+.concept-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 70px 25px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.concept-box {
+    text-align: center;
+
+    font-family: 'Poppins', sans-serif;
+
+    min-width: 0;
+}
+
+.concept-box h3 {
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: var(--coral);
+
+    margin-bottom: 10px;
+}
+
+.concept-box p {
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    color: var(--muted);
+
+    max-width: 230px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp-float {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #25D366;
+
+    color: white;
+
+    font-size: 27px;
+
+    text-decoration: none;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+
+    z-index: 999;
+
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    background: #20bd5a;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: var(--coral);
+
+    color: white;
+
+    padding: 55px 25px 25px;
+
+    scroll-margin-top: 100px;
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 40px;
+}
+
+.footer-logo {
+    width: 140px;
+
+    height: 55px;
+
+    object-fit: contain;
+
+    background: white;
+
+    border-radius: 8px;
+
+    padding: 3px;
+
+    margin-bottom: 15px;
+}
+
+.footer-column {
+    min-width: 0;
+}
+
+.footer-column h3 {
+    font-size: 15px;
+
+    margin-bottom: 15px;
+
+    color: white;
+}
+
+.footer-column p,
+.footer-column a {
+    color: rgba(255,255,255,0.92);
+
+    font-size: 13px;
+
+    line-height: 2;
+
+    text-decoration: none;
+}
+
+.footer-column a {
+    cursor: pointer;
+}
+
+.footer-column a:hover {
+    color: var(--dark-brown);
+}
+
+.social-links {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 18px;
+
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.16);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-4px);
+
+    color: white;
+}
+
+.social-link.facebook:hover {
+    background: #1877F2;
+}
+
+.social-link.instagram:hover {
+    background: #E4405F;
+}
+
+.social-link.tiktok:hover {
+    background: #000000;
+}
+
+.social-link.whatsapp:hover {
+    background: #25D366;
+}
+
+.contact-description {
+    color: rgba(255,255,255,0.92);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 5px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+
+    margin: 35px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,0.30);
+
+    text-align: center;
+
+    color: rgba(255,255,255,0.85);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET — 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header-container {
+        grid-template-columns: 150px minmax(0, 1fr) 210px;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 17px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .search-box {
+        width: 200px;
+    }
+
+    .product-grid {
+        gap: 20px;
+    }
+}
+
+
+/* =========================================================
+   TABLET — 950px
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .header-container {
+        grid-template-columns: 140px 1fr;
+        grid-template-rows: auto auto;
+
+        min-height: auto;
+
+        padding: 10px 25px 12px;
+
+        gap: 8px 20px;
+    }
+
+    .logo {
+        width: 135px;
+        height: 55px;
+    }
+
+    .search-area {
+        justify-content: flex-end;
+    }
+
+    nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        width: 100%;
+
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        justify-content: center;
+
+        gap: 22px;
+    }
+
+    .concept-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   TABLET — 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .header-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero-content {
+        min-height: 500px;
+        padding: 60px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 50px;
+        max-width: 600px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        max-width: 500px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .section {
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .section-title h2 {
+        font-size: 38px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — 600px
+========================================================= */
+
+@media (max-width: 600px) {
+
+    html {
+        scroll-padding-top: 82px;
+    }
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+    }
+
+    .header-container {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        grid-template-rows: auto auto;
+
+        align-items: center;
+
+        padding:
+            8px
+            15px
+            10px;
+
+        gap: 8px 10px;
+    }
+
+    /* ---------- MOBILE LOGO ---------- */
+
+    .logo {
+        width: 125px;
+        height: 48px;
+
+        object-fit: contain;
+        object-position: left center;
+
+        max-width: 100%;
+    }
+
+    /* ---------- MOBILE MENU BUTTON ---------- */
+
+    .mobile-menu-btn {
+        display: flex;
+
+        width: 44px;
+        height: 44px;
+
+        border-radius: 11px;
+    }
+
+    /* ---------- MOBILE NAV ---------- */
+
+    nav {
+        display: none;
+
+        grid-column: 1 / -1;
+        grid-row: 3;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+        gap: 0;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+        padding: 7px;
+
+        box-shadow: 0 10px 25px rgba(45, 33, 28, 0.10);
+
+        max-height: calc(100svh - 90px);
+
+        overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    nav.mobile-open {
+        display: flex;
+    }
+
+    nav > a,
+    .dropdown > a {
+        width: 100%;
+
+        min-height: 48px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 12px 14px;
+
+        border-radius: 9px;
+
+        font-size: 14px;
+    }
+
+    nav > a:active,
+    .dropdown > a:active {
+        background: var(--soft-coral);
+    }
+
+    .dropdown {
+        width: 100%;
+        display: block;
+    }
+
+    /* ---------- PRODUCTS DROPDOWN ---------- */
+
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+
+        min-width: 0;
+
+        transform: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        display: none;
+
+        margin: 2px 0 5px;
+
+        padding: 5px;
+
+        box-shadow: none;
+
+        border-radius: 10px;
+
+        background: var(--warm-ivory);
+    }
+
+    .dropdown.mobile-open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        transform: none;
+    }
+
+    /* ---------- CATEGORY DROPDOWNS ---------- */
+
+    .category-dropdown {
+        width: 100%;
+    }
+
+    .category-dropdown > a {
+        min-height: 45px;
+
+        font-size: 13px;
+    }
+
+    .category-arrow {
+        font-size: 9px;
+
+        margin-left: 15px;
+
+        flex-shrink: 0;
+    }
+
+    /* ---------- PRODUCT SUBMENU ---------- */
+
+    .product-submenu {
+        position: static;
+
+        width: 100%;
+
+        min-width: 0;
+
+        margin: 0 0 5px;
+
+        padding: 3px 5px 3px 12px;
+
+        display: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        box-shadow: none;
+
+        border: none;
+
+        border-left: 2px solid var(--coral);
+
+        border-radius: 0;
+
+        background: transparent;
+    }
+
+    .category-dropdown.mobile-open .product-submenu {
+        display: block;
+    }
+
+    .category-dropdown:hover .product-submenu {
+        display: none;
+    }
+
+    .category-dropdown.mobile-open:hover .product-submenu {
+        display: block;
+    }
+
+    .product-submenu a {
+        padding: 10px;
+
+        font-size: 12px;
+
+        line-height: 1.45;
+    }
+
+    /* ---------- SEARCH ---------- */
+
+    .search-area {
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        width: 100%;
+
+        justify-content: stretch;
+
+        min-width: 0;
+    }
+
+    .search-box {
+        width: 100%;
+
+        height: 44px;
+
+        min-height: 44px;
+
+        padding-left: 14px;
+        padding-right: 7px;
+
+        border-radius: 24px;
+    }
+
+    .search-box input {
+        font-size: 13px;
+
+        min-width: 0;
+    }
+
+    .search-btn {
+        width: 34px;
+        height: 34px;
+
+        font-size: 16px;
+    }
+
+
+    /* =====================================================
+       MOBILE HERO
+    ===================================================== */
+
+    .hero {
+        position: relative;
+        height: 520px;
+    }
+
+    .hero-slide img {
+        object-position: center;
+    }
+
+    .hero-dots {
+        bottom: 16px;
+    }
+
+    .hero-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .hero-dot.active {
+        width: 21px;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        min-height: 0;
+
+        height: 100%;
+
+        padding:
+            35px
+            20px
+            40px;
+
+        justify-content: center;
+
+        align-items: flex-start;
+    }
+
+    .hero-content h1 {
+        width: 100%;
+
+        max-width: 390px;
+
+        font-size: clamp(36px, 10.5vw, 47px);
+
+        line-height: 1.08;
+
+        margin-bottom: 17px;
+
+        text-wrap: balance;
+    }
+
+    .hero-content p {
+        width: 100%;
+
+        max-width: 390px;
+
+        font-size: 13.5px;
+
+        line-height: 1.65;
+
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        min-height: 48px;
+
+        padding: 13px 22px;
+
+        font-size: 13px;
+
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+    .section {
+        width: 100%;
+
+        padding:
+            52px
+            16px;
+
+        scroll-margin-top: 85px;
+    }
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+        font-size: clamp(31px, 8vw, 36px);
+
+        line-height: 1.15;
+
+        margin-bottom: 9px;
+    }
+
+    .section-title p {
+        font-size: 12.5px;
+
+        line-height: 1.6;
+
+        max-width: 350px;
+
+        margin: auto;
+    }
+
+
+    /* =====================================================
+       CATEGORY CARDS
+    ===================================================== */
+
+    .category-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .category-card {
+        width: 100%;
+
+        height: 245px;
+
+        border-radius: 17px;
+
+        border-width: 1.5px;
+    }
+
+    .category-card img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+    }
+
+    .category-overlay {
+        padding: 20px;
+
+        background:
+            linear-gradient(
+                transparent 20%,
+                rgba(45, 33, 28, 0.82)
+            );
+    }
+
+    .category-overlay h3 {
+        font-size: 26px;
+
+        line-height: 1.15;
+
+        margin-bottom: 7px;
+    }
+
+    .category-overlay p {
+        font-size: 11.5px;
+
+        line-height: 1.5;
+
+        max-width: 330px;
+    }
+
+
+    /* =====================================================
+       PRODUCTS
+    ===================================================== */
+
+    .products-section {
+        width: 100%;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .product-grid {
+        width: 100%;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 14px;
+    }
+
+    .product-card {
+        width: 100%;
+
+        min-width: 0;
+
+        border-radius: 14px;
+
+        border-width: 1.5px;
+
+        display: flex;
+
+        flex-direction: column;
+    }
+
+    .product-image-container {
+        width: 100%;
+
+        height: 175px;
+
+        flex-shrink: 0;
+
+        background: white;
+    }
+
+    .product-img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: contain;
+
+        padding: 9px;
+    }
+
+    .product-info {
+        width: 100%;
+
+        padding: 12px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        flex: 1;
+    }
+
+    .product-info h3 {
+        font-size: 12.5px;
+
+        line-height: 1.4;
+
+        margin-bottom: 7px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .product-description {
+        font-size: 10px;
+
+        line-height: 1.5;
+
+        margin-bottom: 11px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .product-bottom {
+        width: 100%;
+
+        margin-top: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-end;
+
+        gap: 8px;
+    }
+
+    .price {
+        font-size: 14px;
+
+        line-height: 1.2;
+
+        align-self: flex-start;
+    }
+
+    .order-btn {
+        width: 100%;
+
+        min-height: 36px;
+
+        padding: 8px 10px;
+
+        border-radius: 18px;
+
+        font-size: 10px;
+    }
+
+
+    /* =====================================================
+       CATEGORY PRODUCT VIEWS
+    ===================================================== */
+
+    .category-view {
+        width: 100%;
+
+        min-height: 450px;
+    }
+
+    .category-view-header {
+        margin-bottom: 30px;
+    }
+
+    .category-view-header h2 {
+        font-size: clamp(31px, 8vw, 37px);
+
+        line-height: 1.15;
+    }
+
+    .category-view-header p {
+        font-size: 12.5px;
+
+        line-height: 1.6;
+
+        margin-bottom: 22px;
+    }
+
+    .back-btn {
+        min-height: 42px;
+
+        padding: 10px 16px;
+
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+
+    .about-section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .about-content {
+        width: 100%;
+    }
+
+    .about-content h2 {
+        font-size: clamp(31px, 8vw, 36px);
+
+        line-height: 1.15;
+    }
+
+    .about-content p {
+        font-size: 12.5px;
+
+        line-height: 1.8;
+
+        margin-bottom: 14px;
+    }
+
+    .about-purpose {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin: 24px 0;
+    }
+
+    .about-card {
+        padding: 20px;
+    }
+
+    .about-card h3 {
+        font-size: 18px;
+    }
+
+    .about-highlights {
+        justify-content: flex-start;
+        gap: 9px;
+        margin: 24px 0;
+    }
+
+    .about-highlight {
+        font-size: 11px;
+        padding: 9px 11px;
+    }
+
+
+    /* =====================================================
+       FAQ
+    ===================================================== */
+
+    .faq-section {
+        width: 100%;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .faq-container {
+        width: 100%;
+    }
+
+    .faq-container details {
+        width: 100%;
+
+        padding: 0 13px;
+
+        margin-bottom: 11px;
+
+        border-radius: 11px;
+    }
+
+    .faq-container summary {
+        min-height: 52px;
+
+        display: flex;
+
+        align-items: center;
+
+        font-size: 12.5px;
+
+        line-height: 1.45;
+
+        padding:
+            14px
+            28px
+            14px
+            4px;
+    }
+
+    .faq-container summary::after {
+        right: 3px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        font-size: 21px;
+    }
+
+    .faq-container details[open] summary::after {
+        transform: translateY(-50%);
+    }
+
+    .faq-container details p {
+        font-size: 11.5px;
+
+        line-height: 1.7;
+
+        padding:
+            0
+            4px
+            15px;
+    }
+
+
+    /* =====================================================
+       CONCEPT
+    ===================================================== */
+
+    .concept {
+        width: 100%;
+    }
+
+    .concept-grid {
+        width: 100%;
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 30px 12px;
+
+        padding:
+            50px
+            16px;
+    }
+
+    .concept-box h3 {
+        font-size: 15px;
+
+        line-height: 1.3;
+
+        margin-bottom: 8px;
+    }
+
+    .concept-box p {
+        font-size: 10.5px;
+
+        line-height: 1.65;
+
+        max-width: 170px;
+    }
+
+
+    /* =====================================================
+       WHATSAPP
+    ===================================================== */
+
+    .whatsapp-float {
+        right: 15px;
+
+        bottom:
+            calc(16px + env(safe-area-inset-bottom));
+
+        width: 51px;
+
+        height: 51px;
+
+        font-size: 23px;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+        width: 100%;
+
+        padding:
+            45px
+            20px
+            calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .footer-container {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .footer-logo {
+        width: 135px;
+
+        height: 53px;
+
+        margin-bottom: 13px;
+    }
+
+    .footer-column h3 {
+        font-size: 14px;
+
+        margin-bottom: 11px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+        font-size: 12px;
+
+        line-height: 1.9;
+    }
+
+    .contact-description {
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+    .social-links {
+        gap: 10px;
+
+        margin-top: 15px;
+    }
+
+    .social-link {
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 17px;
+    }
+
+    .footer-bottom {
+        margin-top: 28px;
+
+        padding-top: 17px;
+
+        font-size: 10.5px;
+
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 430px
+========================================================= */
+
+@media (max-width: 430px) and (min-width: 381px) {
+
+    .hero {
+        height: 525px;
+    }
+
+    .hero-content {
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+    .product-image-container {
+        height: 180px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE — 380px
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .header-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .logo {
+        width: 116px;
+        height: 46px;
+    }
+
+    .mobile-menu-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .hero {
+        height: 505px;
+    }
+
+    .hero-content {
+        padding:
+            30px
+            17px
+            35px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(34px, 10.5vw, 40px);
+    }
+
+    .hero-content p {
+        font-size: 12.5px;
+    }
+
+    .section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .products-section,
+    .faq-section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .product-grid {
+        gap: 10px;
+    }
+
+    .product-image-container {
+        height: 160px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-info h3 {
+        font-size: 11.5px;
+    }
+
+    .product-description {
+        font-size: 9.5px;
+    }
+
+    .price {
+        font-size: 13px;
+    }
+
+    .order-btn {
+        min-height: 34px;
+
+        font-size: 9.5px;
+
+        padding: 7px 8px;
+    }
+
+    .category-card {
+        height: 230px;
+    }
+
+    .category-overlay {
+        padding: 18px;
+    }
+
+    .category-overlay h3 {
+        font-size: 24px;
+    }
+
+    .category-overlay p {
+        font-size: 10.5px;
+    }
+
+    .concept-grid {
+        gap: 27px 10px;
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .concept-box h3 {
+        font-size: 14px;
+    }
+
+    .concept-box p {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE — 340px
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .hero {
+        height: 475px;
+    }
+
+    .hero-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 33px;
+    }
+
+    .hero-content p {
+        font-size: 12px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .product-image-container {
+        height: 215px;
+    }
+
+    .product-info {
+        padding: 13px;
+    }
+
+    .product-info h3 {
+        font-size: 13.5px;
+    }
+
+    .product-description {
+        font-size: 10.5px;
+    }
+
+    .product-bottom {
+        flex-direction: row;
+
+        align-items: center;
+
+        justify-content: space-between;
+    }
+
+    .order-btn {
+        width: auto;
+
+        min-width: 70px;
+
+        padding: 8px 13px;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .concept-box p {
+        max-width: 230px;
+    }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .product-card:hover {
+        transform: none;
+
+        box-shadow: none;
+    }
+
+    .product-card:hover .product-img {
+        transform: none;
+    }
+
+    .category-card:hover img {
+        transform: none;
+    }
+
+    .btn:hover {
+        transform: none;
+    }
+
+    .whatsapp-float:hover {
+        transform: none;
+    }
+
+    .social-link:hover {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+
+/* SIXTEEN MART hero carousel additions */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  --swipe-x: 0px;
+  --image-swipe-x: 0px;
+  --copy-swipe-x: 0px;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  isolation: isolate;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .45s ease, transform .45s ease;
+  pointer-events: none;
+}
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.hero-slide.active img {
+  animation: hero-image-parallax .7s cubic-bezier(.22, .8, .25, 1) both;
+}
+.hero-slide.active .hero-copy {
+  animation: hero-copy-parallax .7s cubic-bezier(.22, .8, .25, 1) both;
+}
+.hero-slide.active .hero-shop-hotspot {
+  animation: hero-button-parallax .7s cubic-bezier(.22, .8, .25, 1) both;
+}
+@keyframes hero-image-parallax {
+  from { transform: translateX(42px) scale(1.08); }
+  to { transform: translateX(0) scale(1); }
+}
+@keyframes hero-copy-parallax {
+  from { transform: translateX(-28px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes hero-button-parallax {
+  from { transform: translateX(-18px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.hero-slider.is-swiping .hero-slide.active {
+  transform: translateX(var(--swipe-x));
+  transition: none;
+}
+.hero-slider.is-swiping .hero-slide.active img {
+  transform: translateX(var(--image-swipe-x)) scale(1.03);
+  transition: none;
+}
+.hero-slider.is-swiping .hero-copy,
+.hero-slider.is-swiping .hero-shop-hotspot {
+  transform: translateX(var(--copy-swipe-x));
+  transition: none;
+}
+.hero-slide img {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+.hero-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: block !important;
+  width: 38%;
+  background: #fe6b51;
+  z-index: 3;
+}
+/* The original artwork contains its own buttons at slightly different heights.
+   Cover that area and draw one real, consistently positioned button instead. */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  left: 3.5%;
+  top: 52%;
+  width: 28%;
+  height: 43%;
+  z-index: 3;
+  background: #fe6b51;
+}
+.hero-shop-hotspot {
+  position: absolute;
+  left: 5.1%;
+  top: 61%;
+  width: 23.5%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #173f3b;
+  box-shadow: 0 8px 15px rgba(45, 33, 28, .25);
+  color: #fff8f0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(16px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  z-index: 4;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.hero-shop-hotspot::after {
+  content: "Shop Now";
+}
+.hero-copy {
+  position: absolute;
+  top: 20%;
+  left: 5.1%;
+  z-index: 4;
+  max-width: 32%;
+  color: #fff8f0;
+  font-family: 'Noto Sans Sinhala', 'Poppins', sans-serif;
+  font-size: clamp(30px, 4.2vw, 64px);
+  font-weight: 800;
+  line-height: 1.25;
+  text-shadow: 0 3px 7px rgba(45, 33, 28, .16);
+  transition: transform .25s ease;
+}
+.hero-copy span,
+.hero-copy strong {
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide.active img,
+  .hero-slide.active .hero-copy,
+  .hero-slide.active .hero-shop-hotspot {
+    animation: none;
+  }
+}
+.hero-copy span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .88em;
+  letter-spacing: -.03em;
+}
+.hero-copy strong {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+  font-weight: 700;
+}
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.88);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-arrow.prev { left: 18px; }
+.hero-arrow.next { right: 18px; }
+.hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 9px;
+}
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.7);
+  cursor: pointer;
+}
+.hero-dot.active {
+  transform: scale(1.25);
+}
+@media (max-width: 768px) {
+  .hero-slide::after {
+    width: 40%;
+  }
+  .hero-slide::before {
+    left: 3.5%;
+    top: 52%;
+    width: 28%;
+    height: 43%;
+  }
+  .hero-shop-hotspot {
+    left: 5.1%;
+    top: 61%;
+    width: 23.5%;
+    height: 12%;
+  }
+  .hero-copy {
+    top: 18%;
+    max-width: 40%;
+    font-size: clamp(25px, 7vw, 44px);
+  }
+  .hero-arrow {
+    width: 38px;
+    height: 38px;
+  }
+  .hero-arrow.prev { left: 10px; }
+  .hero-arrow.next { right: 10px; }
+  .hero-slider, .hero-slide {
+    touch-action: pan-y;
+  }
+}
+@media (max-width: 480px) {
+  .hero-slide::before {
+    left: 3.5%;
+    top: 52%;
+    width: 28%;
+    height: 43%;
+  }
+  .hero-shop-hotspot {
+    left: 5.1%;
+    top: 61%;
+    width: 23.5%;
+    height: 12%;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE PASS (loaded last; wins over earlier rules)
+========================================================= */
+.product-card{display:flex;flex-direction:column}
+.product-info{flex:1;display:flex;flex-direction:column}
+.product-bottom{margin-top:auto}
+
+/* Hero: sized by the artwork's own ratio so overlays line up at every width */
+.hero{--hero-crop:.43}
+.hero-art{display:contents}
+
+/* Navigation: hamburger + tap accordion up to 900px (covers tablets) */
+@media (max-width:900px){
+ html{scroll-padding-top:130px}
+ .header-container{grid-template-columns:1fr auto;grid-template-rows:auto auto;padding:8px 20px 10px;gap:8px 10px}
+ .logo{width:125px;height:48px}
+ .mobile-menu-btn{display:flex}
+ nav{display:none;grid-column:1/-1;grid-row:3;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:7px;box-shadow:0 10px 25px rgba(45,33,28,.1);max-height:calc(100svh - 140px);overflow-y:auto}
+ nav.mobile-open{display:flex}
+ nav>a,.dropdown>a{width:100%;min-height:48px;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:9px;font-size:14px}
+ .dropdown{display:block;width:100%}
+ .dropdown-menu{position:static;min-width:0;transform:none;opacity:1;visibility:visible;display:none;margin:2px 0 5px;padding:5px;box-shadow:none;background:var(--warm-ivory)}
+ .dropdown:hover .dropdown-menu{transform:none}
+ .dropdown.mobile-open .dropdown-menu{display:block}
+ .product-submenu{position:static;min-width:0;display:none;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;border-left:2px solid var(--coral);border-radius:0;background:transparent;padding:3px 5px 3px 12px;margin:0 0 5px}
+ .category-dropdown:hover .product-submenu{display:none}
+ .category-dropdown.mobile-open .product-submenu,.category-dropdown.mobile-open:hover .product-submenu{display:block}
+ .search-area{grid-column:1/-1;grid-row:2;justify-content:stretch}
+ .search-box{width:100%;height:44px}
+ .search-box input{font-size:16px} /* stops iOS zoom-on-focus */
+}
+
+/* Hero on phones/small tablets: text panel on top, product art below */
+@media (max-width:640px){
+ /* Phone hero = 32:20 banner: exactly 320x200 on a 320px screen, scaling up proportionally on wider phones */
+ .hero{height:auto;max-width:none}
+ .hero-slider{display:grid;height:auto}
+ .hero-slide::before,.hero-slide::after{display:none!important}
+ .hero-slide{position:relative;inset:auto;grid-area:1/1;height:auto;aspect-ratio:32/20;background:#fe6b51;display:grid;grid-template-columns:48% 52%;grid-template-rows:1fr auto auto 1fr}
+ .hero-copy{position:static;grid-area:2/1;max-width:none;white-space:normal;padding:0 2% 0 5%;font-size:5.4vw;line-height:1.25}
+ .hero-shop-hotspot{position:static;grid-area:3/1;justify-self:start;width:auto;height:max(30px,9vw);min-height:0;padding:0 5vw;margin:3vw 0 0 5vw;font-size:3.6vw}
+ /* product area = right 52%; artwork fills its height, left coral panel (43% of the image) is cropped off */
+ .hero-art{grid-area:1/2/5/3;display:block;position:relative;overflow:hidden}
+ .hero-art img{position:absolute;top:0;left:-107.1%;width:213.7%;height:100%;max-width:none;object-fit:cover}
+ .hero-arrow{display:none}
+ .hero-dots{left:auto;right:6px;bottom:6px;transform:none;gap:5px;padding:3px 7px;border-radius:999px;background:rgba(45,33,28,.35)}
+ .hero-dot{width:6px;height:6px}
+ .hero-dot.active{width:14px;border-radius:6px;transform:none}
+}
+
+
+/* Readable text + touch targets on phones */
+@media (max-width:600px){
+ .product-info h3{font-size:13px}
+ .product-description{font-size:11.5px}
+ .price{font-size:15px}
+ .order-btn{font-size:11.5px;min-height:40px}
+ .concept-box p{font-size:12px}
+ .section-title p,.category-view-header p{font-size:13.5px}
+}
+
+/* Hero transition fix: the artwork used to shift/scale while the coral cover
+   panels stayed put, exposing the image's baked-in text at the edges. The image
+   now stays locked to the slide, and slides crossfade without a dark flash. */
+.hero{background:#fe6b51}
+.hero-slide img,
+.hero-slide.active img,
+.hero-slider.is-swiping .hero-slide.active img{animation:none;transform:none;transition:none}
+
+/* Side-to-side slide: incoming slide enters from the swipe direction, outgoing exits the other way */
+.hero-slide{opacity:1;visibility:hidden;transform:translateX(100%);transition:none}
+.hero-slide.active{visibility:visible;transform:translateX(0);transition:transform .6s cubic-bezier(.22,.8,.25,1)}
+.hero-slide.to-left,.hero-slide.to-right{visibility:visible;transition:transform .6s cubic-bezier(.22,.8,.25,1)}
+.hero-slide.to-left{transform:translateX(-100%)}
+.hero-slide.to-right{transform:translateX(100%)}
+.hero-slide.from-left,.hero-slide.from-right{visibility:visible;transition:none}
+.hero-slide.from-left{transform:translateX(-100%)}
+.hero-slide.from-right{transform:translateX(100%)}
+.hero-slider.is-swiping .hero-slide.active{transform:translateX(var(--swipe-x));transition:none}
+.hero-slide.active .hero-copy,.hero-slide.active .hero-shop-hotspot{animation:none}
+
+/* Category motion */
+.category-card{transition:transform .35s ease,box-shadow .35s ease}
+.category-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(45,33,28,.16)}
+.category-card:active{transform:scale(.985)}
+.category-overlay h3,.category-overlay p{transition:transform .4s cubic-bezier(.22,.8,.25,1)}
+.category-card:hover .category-overlay h3{transform:translateY(-5px)}
+.category-card:hover .category-overlay p{transform:translateY(-3px)}
+.js-reveal .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,.8,.25,1);transition-delay:var(--d,0s)}
+.js-reveal .reveal.in{opacity:1;transform:none}
+.js-reveal .section-title.reveal h2::after{width:0;transition:width .6s ease .35s}
+.js-reveal .section-title.reveal.in h2::after{width:55px}
+@media (hover:none){.category-card:hover{transform:none;box-shadow:0 10px 30px rgba(45,33,28,.08)}.category-card:hover .category-overlay h3,.category-card:hover .category-overlay p{transform:none}}
+@media (prefers-reduced-motion:reduce){.js-reveal .reveal{opacity:1;transform:none;transition:none}.js-reveal .section-title.reveal h2::after{width:55px}}
+
+/* Hero on tablets (641-768px): original overlay layout, text scaled to fit the panel */
+@media (min-width:641px) and (max-width:768px){
+ .hero-copy{top:20%;max-width:32%;font-size:clamp(20px,4.2vw,64px)}
+ .hero-slide::after{width:38%}
+ .hero-arrow{display:flex}
+}
+
+/* Footer: tablet */
+@media (min-width:601px) and (max-width:900px){
+ .footer-container{grid-template-columns:1fr 1fr;gap:32px 40px}
+ .footer-container .footer-column:first-child{grid-column:1/-1}
+}
+
+/* Footer logo: square on every screen */
+.footer-logo{width:84px;height:84px;object-fit:contain;padding:6px}
+
+/* Footer: phones = 320x250 (32:25), scales with screen width.
+   Row 1: logo + tagline | Row 2: Quick Links (under logo) + Contact Us (to its right) | copyright */
+@media (max-width:600px){
+ footer{aspect-ratio:32/25;display:flex;flex-direction:column;justify-content:space-between;padding:5vw 5vw 3.5vw}
+ .footer-container{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:4vw 9vw;align-items:start;margin:0}
+ .footer-column:nth-child(1){grid-area:1/1/2/3;display:flex;align-items:center;gap:3.5vw}
+ .footer-column:nth-child(2){grid-area:2/1;display:block}
+ .footer-column:nth-child(3){grid-area:2/2}
+ .footer-logo{flex:0 0 auto;width:17vw;height:17vw;padding:1vw;margin:0}
+ .footer-column:nth-child(1) p{font-size:3.4vw;line-height:1.4;margin:0;max-width:none}
+ .footer-column h3{font-size:3.9vw;margin:0 0 1.6vw}
+ .footer-column:nth-child(2) br,.footer-column:nth-child(2) a[href="#contact"],.contact-description{display:none}
+ .footer-column:nth-child(2) a{display:block;font-size:3.7vw;line-height:1;padding:1.9vw 0}
+ .social-links{display:grid;grid-template-columns:repeat(2,max(34px,10.6vw));gap:2.4vw;margin:0}
+ .social-link{width:auto;height:max(34px,10.6vw);font-size:4.8vw}
+ .footer-bottom{margin:0;padding:2.6vw 20% 0 0;text-align:left;font-size:3.3vw}
+}
+
+/* Categories: phones = 320x100 (32:10) cards */
+@media (max-width:640px){
+ .category-grid{gap:12px}
+ #categories{padding-left:0;padding-right:0}
+ #categories .section-title{padding:0 20px}
+ .category-card{height:auto;aspect-ratio:32/10;border-radius:0;border-left:0;border-right:0} /* edge-to-edge banner: 320x100 on a 320px screen */
+ .category-overlay{padding:2.8vw 4vw;background:linear-gradient(transparent 5%,rgba(45,33,28,.86))}
+ .category-overlay h3{font-size:5.4vw;line-height:1.15;margin-bottom:.8vw}
+ .category-overlay p{font-size:3.2vw;line-height:1.35;max-width:92%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+}
+
+/* Products: phones = fixed 178:200 card (178x200 on a 390px iPhone), 2 per row, scales with screen width */
+@media (max-width:600px){
+ .products-section{padding-left:12px;padding-right:12px}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+ .product-card{aspect-ratio:178/200;border-radius:12px}
+ .product-image-container{flex:1 1 0;min-height:0;height:auto;aspect-ratio:auto}
+ .product-img{display:block;width:100%;height:100%;object-fit:contain;padding:6px} /* even space between photo and border */
+ .product-info{flex:0 0 auto;padding:6px 9px 8px}
+ .product-info h3{font-size:11.5px;line-height:1.3;margin:0 0 4px;min-height:2.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .product-description{display:none}
+ .product-bottom{flex-direction:row;align-items:center;justify-content:space-between;gap:6px;margin-top:0}
+ .price{font-size:12.5px;align-self:center;white-space:nowrap}
+ .order-btn{width:auto;min-width:0;height:28px;min-height:0;padding:0 11px;font-size:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+}
+</style>
+</head>
+<body>
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header>
+<div class="header-container">
+<img alt="SIXTEEN MART Logo" class="logo" onclick="showHome()" src="Logo.jpeg"/>
+<!-- MOBILE MENU BUTTON -->
+<button aria-expanded="false" aria-label="Open menu" class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+<i class="fa-solid fa-bars"></i>
+</button>
+<!-- NAVIGATION -->
+<nav id="mainNav">
+<a href="#home" onclick="showHome(); closeMobileMenu(); return false;">
+            Home
+        </a>
+<a href="#about" onclick="showAbout(); closeMobileMenu(); return false;">
+            About Us
+        </a>
+<!-- ALL PRODUCTS -->
+<div class="dropdown" id="productsDropdown">
+<a href="javascript:void(0)" onclick="toggleProductsMenu(event)">
+                All Products
+
+                <span class="dropdown-arrow">
+                    ▼
+                </span>
+</a>
+<div class="dropdown-menu">
+<!-- HOME ACCESSORIES -->
+<div class="category-dropdown" id="homeDropdown">
+<a href="javascript:void(0)" onclick="toggleCategoryMenu(event, 'homeDropdown')">
+                        Home Accessories
+
+                        <span class="category-arrow">▼</span>
+</a>
+<div class="product-submenu">
+<a href="#homeCategory" onclick="showCategory('home'); closeMobileMenu(); return false;">
+                            Electric Handheld Milk Frother
+                        </a>
+<a href="#homeCategory" onclick="showCategory('home'); closeMobileMenu(); return false;">
+                            Mini Portable Pocket Thermal Printer
+                        </a>
+<a href="#homeCategory" onclick="showCategory('home'); closeMobileMenu(); return false;">
+                            Portable Rechargeable Juice Blender
+                        </a>
+</div>
+</div>
+<!-- BEAUTY ACCESSORIES -->
+<div class="category-dropdown" id="beautyDropdown">
+<a href="javascript:void(0)" onclick="toggleCategoryMenu(event, 'beautyDropdown')">
+                        Beauty Accessories
+
+                        <span class="category-arrow">▼</span>
+</a>
+<div class="product-submenu">
+<a href="#beautyCategory" onclick="showCategory('beauty'); closeMobileMenu(); return false;">
+                            5-in-1 Hot Air Styler
+                        </a>
+<a href="#beautyCategory" onclick="showCategory('beauty'); closeMobileMenu(); return false;">
+                            Jade Roller &amp; Gua Sha Set
+                        </a>
+<a href="#beautyCategory" onclick="showCategory('beauty'); closeMobileMenu(); return false;">
+                            Moisturizing Pink Spa Gel Socks
+                        </a>
+</div>
+</div>
+</div>
+</div>
+<a href="#contact" onclick="showContact(); closeMobileMenu(); return false;">
+            Contact Us
+        </a>
+<a href="#faq" onclick="showFAQ(); closeMobileMenu(); return false;">
+            FAQ
+        </a>
+</nav>
+<!-- SEARCH -->
+<div class="search-area">
+<div class="search-box">
+<input autocomplete="off" id="searchInput" placeholder="Search products..." type="text"/>
+<button aria-label="Search" class="search-btn" onclick="searchProducts()">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><line x1="15.5" y1="15.5" x2="21" y2="21"></line></svg>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero" id="home">
+<div class="hero-slider">
+<div class="hero-slide active">
+<div class="hero-art"><img alt="SIXTEEN MART" src="hero image.jpeg"/></div>
+<div class="hero-copy"><span>16 Mart</span><strong>එකෙන් තෝරගන්න!</strong></div>
+<a aria-label="Shop all products" class="hero-shop-hotspot" href="#products" onclick="showAllProducts(); return false;"></a>
+</div>
+<div class="hero-slide">
+<div class="hero-art"><img loading="lazy" alt="Milk Frother" src="hero image frother.jpeg"/></div>
+<div class="hero-copy"><span>16 Mart</span><strong>එකෙන් තෝරගන්න!</strong></div>
+<a aria-label="Shop Milk Frother" class="hero-shop-hotspot" href="#products" onclick="showHeroCategory('frother'); return false;"></a>
+</div>
+<div class="hero-slide">
+<div class="hero-art"><img loading="lazy" alt="Jade Roller" src="hero image jade roller.jpeg"/></div>
+<div class="hero-copy"><span>16 Mart</span><strong>එකෙන් තෝරගන්න!</strong></div>
+<a aria-label="Shop Jade Roller" class="hero-shop-hotspot" href="#products" onclick="showHeroCategory('jade roller'); return false;"></a>
+</div>
+<div class="hero-slide">
+<div class="hero-art"><img loading="lazy" alt="Derma Roller" src="hero image derma roller.jpeg"/></div>
+<div class="hero-copy"><span>16 Mart</span><strong>එකෙන් තෝරගන්න!</strong></div>
+<a aria-label="Shop Derma Roller" class="hero-shop-hotspot" href="#products" onclick="showHeroCategory('derma roller'); return false;"></a>
+</div>
+</div>
+<button aria-label="Previous slide" class="hero-arrow prev" onclick="previousHeroSlide()" type="button">
+<i class="fas fa-chevron-left"></i>
+</button>
+<button aria-label="Next slide" class="hero-arrow next" onclick="nextHeroSlide()" type="button">
+<i class="fas fa-chevron-right"></i>
+</button>
+<div aria-label="Hero slide navigation" class="hero-dots">
+<button aria-label="Slide 1" class="hero-dot active" onclick="showHeroSlide(0)" type="button"></button>
+<button aria-label="Slide 2" class="hero-dot" onclick="showHeroSlide(1)" type="button"></button>
+<button aria-label="Slide 3" class="hero-dot" onclick="showHeroSlide(2)" type="button"></button>
+<button aria-label="Slide 4" class="hero-dot" onclick="showHeroSlide(3)" type="button"></button>
+</div>
+</section>
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
+<section class="section" id="categories">
+<div class="section-title reveal">
+<h2>
+        Shop by Category
+    </h2>
+<p>
+        Discover products made to make everyday life easier.
+    </p>
+</div>
+<div class="category-grid">
+<div class="category-card reveal" onclick="showCategory('home')">
+<img loading="lazy" alt="Home Accessories" src="Home accessories.jpg"/>
+<div class="category-overlay">
+<h3>
+                Home Accessories
+            </h3>
+<p>
+                Functional finds for a smarter and more comfortable home.
+            </p>
+</div>
+</div>
+<div class="category-card reveal" onclick="showCategory('beauty')">
+<img loading="lazy" alt="Beauty Accessories" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"/>
+<div class="category-overlay">
+<h3>
+                Beauty Accessories
+            </h3>
+<p>
+                Simple beauty essentials for your everyday routine.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     ALL PRODUCTS
+========================================================= -->
+<section class="section products-section" id="products">
+<div class="section-title">
+<h2 id="productsTitle">
+        Our Products
+    </h2>
+<p id="productsSubtitle">
+        Smart products. Better value. Everyday convenience.
+    </p>
+</div>
+<div class="product-grid" id="productGrid">
+<!-- PRODUCT 1 -->
+<div class="product-card" data-category="beauty" data-name="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set">
+<div class="product-image-container">
+<img alt="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set" class="product-img" loading="lazy" decoding="async" src="5-in-1 Hot Air Styler  Hair Dryer Curling Wand Set.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                5-in-1 Hot Air Styler Hair Dryer Curling Wand Set
+            </h3>
+<p class="product-description">
+                A versatile styling tool for drying, curling and creating
+                beautiful everyday hairstyles.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 4,990
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%205-in-1%20Hot%20Air%20Styler." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<!-- PRODUCT 2 -->
+<div class="product-card" data-category="home" data-name="Electric Handheld Milk Frother">
+<div class="product-image-container">
+<img alt="Electric Handheld Milk Frother" class="product-img" loading="lazy" decoding="async" src="Electric Handheld Milk Frother.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Electric Handheld Milk Frother
+            </h3>
+<p class="product-description">
+                Quickly create smooth and creamy froth for coffee,
+                cappuccino and other drinks.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 1,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Electric%20Handheld%20Milk%20Frother." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<!-- PRODUCT 3 -->
+<div class="product-card" data-category="beauty" data-name="Jade Roller Gua Sha Facial Massage Set">
+<div class="product-image-container">
+<img alt="Jade Roller and Gua Sha Facial Massage Set" class="product-img" loading="lazy" decoding="async" src="Jade Roller &amp; Gua Sha Facial Massage Set.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Jade Roller &amp; Gua Sha Facial Massage Set
+            </h3>
+<p class="product-description">
+                A simple facial massage set designed for a relaxing
+                self-care routine.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 2,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Jade%20Roller%20and%20Gua%20Sha%20Set." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<!-- PRODUCT 4 -->
+<div class="product-card" data-category="home" data-name="Mini Portable Pocket Thermal Printer">
+<div class="product-image-container">
+<img alt="Mini Portable Pocket Thermal Printer" class="product-img" loading="lazy" decoding="async" src="Mini Portable Pocket Thermal Printer.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Mini Portable Pocket Thermal Printer
+            </h3>
+<p class="product-description">
+                A compact portable printer for notes, labels, lists and
+                fun everyday prints.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 3,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Mini%20Portable%20Pocket%20Thermal%20Printer." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<!-- PRODUCT 5 -->
+<div class="product-card" data-category="beauty" data-name="Moisturizing Pink Spa Gel Socks">
+<div class="product-image-container">
+<img alt="Moisturizing Pink Spa Gel Socks" class="product-img" loading="lazy" decoding="async" src="Moisturizing Pink Spa Gel Socks.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Moisturizing Pink Spa Gel Socks
+            </h3>
+<p class="product-description">
+                Comfortable gel socks designed to support a relaxing
+                foot-care routine.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 1,290
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Moisturizing%20Pink%20Spa%20Gel%20Socks." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<!-- PRODUCT 6 -->
+<div class="product-card" data-category="home" data-name="Portable Rechargeable Juice Blender">
+<div class="product-image-container">
+<img alt="Portable Rechargeable Juice Blender" class="product-img" loading="lazy" decoding="async" src="Portable Rechargeable Juice Blender.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Portable Rechargeable Juice Blender
+            </h3>
+<p class="product-description">
+                A compact rechargeable blender designed for convenient
+                smoothies and drinks on the go.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 3,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Portable%20Rechargeable%20Juice%20Blender." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+</div>
+<div class="no-results" id="noResults">
+<h3>
+        No products found
+    </h3>
+<p>
+        Try searching for another product.
+    </p>
+</div>
+</section>
+<!-- =========================================================
+     HOME ACCESSORIES
+========================================================= -->
+<section class="section category-view" id="homeCategory">
+<div class="category-view-header">
+<h2>
+        Home Accessories
+    </h2>
+<p>
+        Functional and smart products to make your everyday home life easier.
+    </p>
+<button class="back-btn" onclick="showAllProducts()">
+        ← Back to All Products
+    </button>
+</div>
+<div class="product-grid">
+<div class="product-card" data-category="frother" data-name="Electric Handheld Milk Frother">
+<div class="product-image-container">
+<img alt="Electric Handheld Milk Frother" class="product-img" loading="lazy" decoding="async" src="Electric Handheld Milk Frother.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Electric Handheld Milk Frother
+            </h3>
+<p class="product-description">
+                Make smooth and creamy froth for your favourite drinks.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 1,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Electric%20Handheld%20Milk%20Frother." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<div class="product-card" data-name="Mini Portable Pocket Thermal Printer">
+<div class="product-image-container">
+<img alt="Mini Portable Pocket Thermal Printer" class="product-img" loading="lazy" decoding="async" src="Mini Portable Pocket Thermal Printer.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Mini Portable Pocket Thermal Printer
+            </h3>
+<p class="product-description">
+                Compact printing for notes, labels and everyday lists.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 3,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Mini%20Portable%20Pocket%20Thermal%20Printer." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<div class="product-card" data-name="Portable Rechargeable Juice Blender">
+<div class="product-image-container">
+<img alt="Portable Rechargeable Juice Blender" class="product-img" loading="lazy" decoding="async" src="Portable Rechargeable Juice Blender.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Portable Rechargeable Juice Blender
+            </h3>
+<p class="product-description">
+                Make smoothies and drinks conveniently wherever you go.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 3,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Portable%20Rechargeable%20Juice%20Blender." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     BEAUTY ACCESSORIES
+========================================================= -->
+<section class="section category-view" id="beautyCategory">
+<div class="category-view-header">
+<h2>
+        Beauty Accessories
+    </h2>
+<p>
+        Everyday beauty and self-care accessories for your routine.
+    </p>
+<button class="back-btn" onclick="showAllProducts()">
+        ← Back to All Products
+    </button>
+</div>
+<div class="product-grid">
+<div class="product-card" data-name="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set">
+<div class="product-image-container">
+<img alt="5-in-1 Hot Air Styler Hair Dryer Curling Wand Set" class="product-img" loading="lazy" decoding="async" src="5-in-1 Hot Air Styler  Hair Dryer Curling Wand Set.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                5-in-1 Hot Air Styler Hair Dryer Curling Wand Set
+            </h3>
+<p class="product-description">
+                Style, dry and curl your hair with one versatile tool.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 4,990
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%205-in-1%20Hot%20Air%20Styler." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<div class="product-card" data-category="jade roller" data-name="Jade Roller &amp; Gua Sha Facial Massage Set">
+<div class="product-image-container">
+<img alt="Jade Roller and Gua Sha Facial Massage Set" class="product-img" loading="lazy" decoding="async" src="Jade Roller &amp; Gua Sha Facial Massage Set.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Jade Roller &amp; Gua Sha Facial Massage Set
+            </h3>
+<p class="product-description">
+                A relaxing accessory for your everyday self-care routine.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 2,490
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Jade%20Roller%20and%20Gua%20Sha%20Set." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+<div class="product-card" data-name="Moisturizing Pink Spa Gel Socks">
+<div class="product-image-container">
+<img alt="Moisturizing Pink Spa Gel Socks" class="product-img" loading="lazy" decoding="async" src="Moisturizing Pink Spa Gel Socks.jpg"/>
+</div>
+<div class="product-info">
+<h3>
+                Moisturizing Pink Spa Gel Socks
+            </h3>
+<p class="product-description">
+                A comfortable addition to your relaxing foot-care routine.
+            </p>
+<div class="product-bottom">
+<span class="price">
+                    Rs. 1,290
+                </span>
+<a class="order-btn" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20am%20interested%20in%20the%20Moisturizing%20Pink%20Spa%20Gel%20Socks." rel="noopener noreferrer" target="_blank">
+                    Order
+                </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     ABOUT US
+========================================================= -->
+<section class="section about-section" id="about">
+<div class="about-content">
+<h2>
+        About Us
+    </h2>
+<div class="about-intro">
+<p>
+        Welcome to <strong>16 Mart</strong> — your destination for useful,
+        stylish lifestyle essentials at prices that feel right.
+    </p>
+<p>
+        Built around <span class="about-accent">16</span> carefully selected
+        finds, our collection is curated by <span class="about-accent">16</span>
+        passionate creators who believe everyday shopping should offer more
+        value. From home accessories to beauty essentials, each item is
+        chosen to make daily life a little easier.
+    </p>
+</div>
+<div class="about-highlights">
+<span class="about-highlight"><i class="fa-solid fa-box-open"></i>16 Curated Finds</span>
+<span class="about-highlight"><i class="fa-solid fa-house"></i>Home &amp; Beauty Essentials</span>
+<span class="about-highlight"><i class="fa-solid fa-tags"></i>Everyday Value</span>
+</div>
+<div class="about-purpose">
+<article class="about-card">
+<i class="fa-solid fa-eye"></i>
+<h3>Our Vision</h3>
+<p>
+            To become a trusted Sri Lankan lifestyle store, known for useful
+            products and an easy shopping experience.
+        </p>
+</article>
+<article class="about-card">
+<i class="fa-solid fa-bullseye"></i>
+<h3>Our Mission</h3>
+<p>
+            To help young Sri Lankan consumers discover practical and stylish
+            lifestyle products through convenient online shopping.
+        </p>
+</article>
+</div>
+<p class="about-closing">
+        At 16 Mart, we believe great shopping should be simple, honest, and
+        affordable. <strong>16 Mart — Always More Value.</strong>
+    </p>
+<a class="about-cta" href="#products" onclick="showAllProducts(); return false;">
+        Explore Our Collection <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</div>
+</section>
+<!-- =========================================================
+     FAQ
+========================================================= -->
+<section class="section faq-section" id="faq">
+<div class="section-title">
+<h2>
+        FAQ
+    </h2>
+<p>
+        Frequently asked questions about SIXTEEN MART.
+    </p>
+</div>
+<div class="faq-container">
+<details>
+<summary>
+            How can I place an order?
+        </summary>
+<p>
+            You can order directly through WhatsApp by clicking the
+            Order button on your preferred product.
+        </p>
+</details>
+<details>
+<summary>
+            What products does SIXTEEN MART offer?
+        </summary>
+<p>
+            We offer a selection of affordable and useful home
+            accessories and beauty accessories.
+        </p>
+</details>
+<details>
+<summary>
+            How can I contact SIXTEEN MART?
+        </summary>
+<p>
+            You can contact us through our social media pages listed
+            in the Contact Us section.
+        </p>
+</details>
+<details>
+<summary>
+            How can I see all available products?
+        </summary>
+<p>
+            Click All Products in the navigation menu and choose
+            the category you want to explore.
+        </p>
+</details>
+</div>
+</section>
+<!-- =========================================================
+     CONCEPT
+========================================================= -->
+<section class="concept">
+<div class="concept-grid">
+<div class="concept-box">
+<h3>
+            16 Members
+        </h3>
+<p>
+            Sixteen ideas coming together to create one lifestyle store.
+        </p>
+</div>
+<div class="concept-box">
+<h3>
+            Affordable
+        </h3>
+<p>
+            Everyday products at prices that offer great value.
+        </p>
+</div>
+<div class="concept-box">
+<h3>
+            Functional &amp; Trendy
+        </h3>
+<p>
+            Useful products that also fit modern lifestyles.
+        </p>
+</div>
+<div class="concept-box">
+<h3>
+            Direct Social Flow
+        </h3>
+<p>
+            Discover, connect and order easily through social platforms.
+        </p>
+</div>
+</div>
+</section>
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+<a aria-label="WhatsApp" class="whatsapp-float" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20would%20like%20to%20know%20more%20about%20your%20products." rel="noopener noreferrer" target="_blank" title="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer id="contact">
+<div class="footer-container">
+<!-- BRAND -->
+<div class="footer-column">
+<img alt="SIXTEEN MART Logo" class="footer-logo" src="Logo.jpeg"/>
+<p>
+            Smart everyday finds with more value.
+            Affordable, functional and trendy lifestyle products.
+        </p>
+</div>
+<!-- QUICK LINKS -->
+<div class="footer-column">
+<h3>
+            Quick Links
+        </h3>
+<a href="#home" onclick="showHome(); return false;">
+            Home
+        </a>
+<br/>
+<a href="#about" onclick="showAbout(); return false;">
+            About Us
+        </a>
+<br/>
+<a href="#products" onclick="showAllProducts(); return false;">
+            All Products
+        </a>
+<br/>
+<a href="#contact" onclick="showContact(); return false;">
+            Contact Us
+        </a>
+<br/>
+<a href="#faq" onclick="showFAQ(); return false;">
+            FAQ
+        </a>
+</div>
+<!-- CONTACT -->
+<div class="footer-column">
+<h3>
+            Contact Us
+        </h3>
+<p class="contact-description">
+            Connect with SIXTEEN MART through our social media pages.
+        </p>
+<div class="social-links">
+<a aria-label="Facebook" class="social-link facebook" href="https://www.facebook.com/share/1FCNRuqKVa/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank" title="Facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="Instagram" class="social-link instagram" href="https://www.instagram.com/_16.mart_onlinestore?stkn=MWQ0cXRsaTF0YXIxNw==" rel="noopener noreferrer" target="_blank" title="Instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="TikTok" class="social-link tiktok" href="https://www.tiktok.com/@sixteenmart1?_r=1&amp;_t=ZS-99h4W7jognR" rel="noopener noreferrer" target="_blank" title="TikTok">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+<a aria-label="WhatsApp" class="social-link whatsapp" href="https://wa.me/94768056036?text=Hi%20SIXTEEN%20MART,%20I%20would%20like%20to%20know%20more%20about%20your%20products." rel="noopener noreferrer" target="_blank" title="WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+
+    © 2026 SIXTEEN MART. All Rights Reserved.
+
+</div>
+</footer>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const productCards =
+    document.querySelectorAll(
+        "#productGrid .product-card"
+    );
+
+const noResults =
+    document.getElementById("noResults");
+
+const productsSection =
+    document.getElementById("products");
+
+const homeCategory =
+    document.getElementById("homeCategory");
+
+const beautyCategory =
+    document.getElementById("beautyCategory");
+
+const aboutSection =
+    document.getElementById("about");
+
+const faqSection =
+    document.getElementById("faq");
+
+const contactSection =
+    document.getElementById("contact");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+const productsDropdown =
+    document.getElementById("productsDropdown");
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu() {
+
+    const isOpen =
+        mainNav.classList.toggle("mobile-open");
+
+    mobileMenuBtn.setAttribute(
+        "aria-expanded",
+        isOpen
+    );
+
+    mobileMenuBtn.setAttribute(
+        "aria-label",
+        isOpen ? "Close menu" : "Open menu"
+    );
+
+    mobileMenuBtn.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+}
+
+
+function closeMobileMenu() {
+
+    mainNav.classList.remove("mobile-open");
+
+    mobileMenuBtn.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    mobileMenuBtn.setAttribute(
+        "aria-label",
+        "Open menu"
+    );
+
+    mobileMenuBtn.innerHTML =
+        '<i class="fa-solid fa-bars"></i>';
+
+    productsDropdown.classList.remove(
+        "mobile-open"
+    );
+
+    document
+        .getElementById("homeDropdown")
+        .classList.remove("mobile-open");
+
+    document
+        .getElementById("beautyDropdown")
+        .classList.remove("mobile-open");
+}
+
+
+/* =========================================================
+   MOBILE PRODUCT DROPDOWN
+========================================================= */
+
+function toggleProductsMenu(event) {
+
+    event.preventDefault();
+
+    if (window.matchMedia("(max-width: 900px)").matches) {
+
+        productsDropdown.classList.toggle(
+            "mobile-open"
+        );
+
+    } else {
+
+        showAllProducts();
+
+    }
+}
+
+
+/* =========================================================
+   MOBILE CATEGORY DROPDOWN
+========================================================= */
+
+function toggleCategoryMenu(event, id) {
+
+    event.preventDefault();
+
+    if (window.matchMedia("(max-width: 900px)").matches) {
+
+        const category =
+            document.getElementById(id);
+
+        category.classList.toggle(
+            "mobile-open"
+        );
+
+    } else {
+
+        if (id === "homeDropdown") {
+
+            showCategory("home");
+
+        } else {
+
+            showCategory("beauty");
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function showHome() {
+
+    closeMobileMenu();
+
+    showAllProducts(false);
+
+    document
+        .getElementById("home")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts() {
+
+    const searchTerm =
+        searchInput.value.trim().toLowerCase();
+
+    closeMobileMenu();
+
+    if (searchTerm === "") {
+
+        showAllProducts();
+
+        return;
+    }
+
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+    productsSection.style.display = "block";
+
+
+    let foundProducts = 0;
+
+
+    productCards.forEach(card => {
+
+        const productName =
+            card
+                .getAttribute("data-name")
+                .toLowerCase();
+
+
+        if (productName.includes(searchTerm)) {
+
+            card.style.display = "";
+
+            foundProducts++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    document.getElementById(
+        "productsTitle"
+    ).textContent = "Search Results";
+
+
+    document.getElementById(
+        "productsSubtitle"
+    ).textContent =
+        `Showing results for "${searchInput.value}"`;
+
+
+    if (foundProducts === 0) {
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+
+    productsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+/* =========================================================
+   ENTER KEY SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            searchProducts();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLEAR SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+        if (this.value.trim() === "") {
+
+            productCards.forEach(card => {
+
+                card.style.display = "";
+
+            });
+
+
+            noResults.style.display = "none";
+
+
+            document.getElementById(
+                "productsTitle"
+            ).textContent = "Our Products";
+
+
+            document.getElementById(
+                "productsSubtitle"
+            ).textContent =
+                "Smart products. Better value. Everyday convenience.";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SHOW CATEGORY
+========================================================= */
+
+function showCategory(category) {
+
+    closeMobileMenu();
+
+    productsSection.style.display = "none";
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+    searchInput.value = "";
+
+
+    if (category === "home") {
+
+        homeCategory.classList.add("active");
+
+        homeCategory.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+    if (category === "beauty") {
+
+        beautyCategory.classList.add("active");
+
+        beautyCategory.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW ALL PRODUCTS
+========================================================= */
+
+function showAllProducts(scroll = true) {
+
+    closeMobileMenu();
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+    productsSection.style.display = "block";
+
+    searchInput.value = "";
+
+
+    productCards.forEach(card => {
+
+        card.style.display = "";
+
+    });
+
+
+    noResults.style.display = "none";
+
+
+    document.getElementById(
+        "productsTitle"
+    ).textContent = "Our Products";
+
+
+    document.getElementById(
+        "productsSubtitle"
+    ).textContent =
+        "Smart products. Better value. Everyday convenience.";
+
+
+    if (scroll) {
+
+        productsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+function showAbout() {
+
+    closeMobileMenu();
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+    productsSection.style.display = "block";
+
+    searchInput.value = "";
+
+
+    productCards.forEach(card => {
+
+        card.style.display = "";
+
+    });
+
+
+    noResults.style.display = "none";
+
+
+    aboutSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+function showFAQ() {
+
+    closeMobileMenu();
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+    productsSection.style.display = "block";
+
+    searchInput.value = "";
+
+
+    productCards.forEach(card => {
+
+        card.style.display = "";
+
+    });
+
+
+    noResults.style.display = "none";
+
+
+    faqSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+function showContact() {
+
+    closeMobileMenu();
+
+    homeCategory.classList.remove("active");
+
+    beautyCategory.classList.remove("active");
+
+    searchInput.value = "";
+
+
+    contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU WHEN RESIZING
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        if (window.innerWidth > 900) {
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+</script>
+<script>
+/* SIXTEEN MART hero + product filtering */
+(function () {
+  let currentHeroSlide = 0;
+  let heroTimer = null;
+  const HERO_INTERVAL = 4000;
+
+  let slideCleanup = null;
+  window.showHeroSlide = function(index, dir) {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    if (!slides.length) return;
+    const n = slides.length;
+    const next = ((index % n) + n) % n;
+    if (next === currentHeroSlide) return;
+    dir = dir || (index > currentHeroSlide ? 1 : -1);
+    const from = slides[currentHeroSlide], to = slides[next];
+    // settle any slide still animating from a previous change
+    clearTimeout(slideCleanup);
+    slides.forEach(s => { if (s !== from) s.classList.remove('to-left', 'to-right', 'from-left', 'from-right'); });
+    // park the incoming slide just off-screen (no transition), then slide it in
+    to.classList.add(dir > 0 ? 'from-right' : 'from-left');
+    void to.offsetWidth;
+    to.classList.remove('from-left', 'from-right');
+    to.classList.add('active');
+    from.classList.remove('active');
+    from.classList.add(dir > 0 ? 'to-left' : 'to-right');
+    slideCleanup = setTimeout(() => from.classList.remove('to-left', 'to-right'), 700);
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === next));
+    currentHeroSlide = next;
+  };
+  window.nextHeroSlide = function() {
+    window.showHeroSlide(currentHeroSlide + 1, 1);
+    resetHeroAutoSlide();
+  };
+
+  window.previousHeroSlide = function() {
+    window.showHeroSlide(currentHeroSlide - 1, -1);
+    resetHeroAutoSlide();
+  };
+
+  function startHeroAutoSlide() {
+    clearInterval(heroTimer);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    heroTimer = setInterval(() => window.showHeroSlide(currentHeroSlide + 1, 1), HERO_INTERVAL);
+  }
+
+  function resetHeroAutoSlide() {
+    startHeroAutoSlide();
+  }
+
+  function showAllProductCards() {
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.display = '';
+    });
+  }
+
+  window.showHeroCategory = function(category) {
+    const target = category.toLowerCase();
+    const key = target === 'frother' ? 'milk frother' : target;
+    const labels = { 'frother': 'Milk Frother', 'jade roller': 'Jade Roller', 'derma roller': 'Derma Roller' };
+    showAllProducts(false);
+    let matched = 0;
+    document.querySelectorAll('#productGrid .product-card').forEach(card => {
+      const hit = (card.dataset.name || '').toLowerCase().includes(key);
+      card.style.display = hit ? '' : 'none';
+      if (hit) matched++;
+    });
+    document.getElementById('productsTitle').textContent = labels[target] || 'Products';
+    document.getElementById('productsSubtitle').textContent = 'Showing results for "' + (labels[target] || category) + '"';
+    document.getElementById('noResults').style.display = matched ? 'none' : 'block';
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    resetHeroAutoSlide();
+  };
+  // Make sure "Shop Now" hotspots work even if an existing script changes product visibility.
+  window.addEventListener('load', function() {
+    window.showHeroSlide(0);
+    startHeroAutoSlide();
+
+    const slider = document.querySelector('.hero-slider');
+    if (slider) {
+      let startX = 0, startY = 0, moved = false;
+      const resetSwipeParallax = () => {
+        slider.classList.remove('is-swiping');
+        slider.style.removeProperty('--swipe-x');
+        slider.style.removeProperty('--image-swipe-x');
+        slider.style.removeProperty('--copy-swipe-x');
+      };
+      slider.addEventListener('touchstart', e => {
+        if (!e.touches.length) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        moved = false;
+      }, { passive: true });
+      slider.addEventListener('touchmove', e => {
+        if (!e.touches.length) return;
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+        if (Math.abs(dx) <= Math.abs(dy)) return;
+        if (Math.abs(dx) > 10) moved = true;
+        const dragDistance = Math.max(-110, Math.min(110, dx));
+        slider.classList.add('is-swiping');
+        slider.style.setProperty('--swipe-x', `${dragDistance}px`);
+        slider.style.setProperty('--image-swipe-x', `${dragDistance * -0.14}px`);
+        slider.style.setProperty('--copy-swipe-x', `${dragDistance * 0.35}px`);
+      }, { passive: true });
+      slider.addEventListener('touchend', e => {
+        if (!moved) {
+          resetSwipeParallax();
+          return;
+        }
+        const dx = e.changedTouches[0].clientX - startX;
+        const dy = e.changedTouches[0].clientY - startY;
+        resetSwipeParallax();
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) window.nextHeroSlide();
+          else window.previousHeroSlide();
+        }
+      }, { passive: true });
+      slider.addEventListener('touchcancel', resetSwipeParallax, { passive: true });
+
+      // Desktop drag support: gives mouse and trackpad users the same
+      // layered parallax movement as a touch swipe.
+      let pointerStartX = 0, pointerStartY = 0, pointerDragging = false;
+      let suppressHeroClick = false;
+      slider.addEventListener('pointerdown', e => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        pointerStartX = e.clientX;
+        pointerStartY = e.clientY;
+        pointerDragging = false;
+        suppressHeroClick = false;
+        slider.setPointerCapture(e.pointerId);
+      });
+      slider.addEventListener('pointermove', e => {
+        if (e.pointerType !== 'mouse' || !slider.hasPointerCapture(e.pointerId)) return;
+        const dx = e.clientX - pointerStartX;
+        const dy = e.clientY - pointerStartY;
+        if (Math.abs(dx) <= Math.abs(dy)) return;
+        if (Math.abs(dx) > 8) pointerDragging = true;
+        if (!pointerDragging) return;
+        e.preventDefault();
+        const dragDistance = Math.max(-130, Math.min(130, dx));
+        slider.classList.add('is-swiping');
+        slider.style.setProperty('--swipe-x', `${dragDistance}px`);
+        slider.style.setProperty('--image-swipe-x', `${dragDistance * -0.14}px`);
+        slider.style.setProperty('--copy-swipe-x', `${dragDistance * 0.35}px`);
+      }, { passive: false });
+      slider.addEventListener('pointerup', e => {
+        if (e.pointerType !== 'mouse' || !slider.hasPointerCapture(e.pointerId)) return;
+        const dx = e.clientX - pointerStartX;
+        const dy = e.clientY - pointerStartY;
+        slider.releasePointerCapture(e.pointerId);
+        suppressHeroClick = pointerDragging;
+        resetSwipeParallax();
+        if (pointerDragging && Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) window.nextHeroSlide();
+          else window.previousHeroSlide();
+        }
+        pointerDragging = false;
+      });
+      slider.addEventListener('pointercancel', () => {
+        pointerDragging = false;
+        resetSwipeParallax();
+      });
+      slider.addEventListener('click', e => {
+        if (!suppressHeroClick) return;
+        e.preventDefault();
+        e.stopPropagation();
+        suppressHeroClick = false;
+      }, true);
+      slider.addEventListener('mouseenter', () => clearInterval(heroTimer));
+      slider.addEventListener('mouseleave', startHeroAutoSlide);
+    }
+  });
+})();
+</script><script>
+/* Fade-up reveal for the category section */
+(function () {
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length || !('IntersectionObserver' in window) ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('js-reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.filter(e => e.isIntersecting).forEach((entry, i) => {
+      const el = entry.target;
+      el.style.setProperty('--d', (i * 0.14) + 's');
+      el.classList.add('in');
+      io.unobserve(el);
+      // hand the element back to its normal styles so hover effects stay snappy
+      setTimeout(() => { el.classList.remove('reveal', 'in'); el.style.removeProperty('--d'); }, 1300 + i * 140);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
